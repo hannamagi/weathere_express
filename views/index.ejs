@@ -1,1 +1,20 @@
-<h1>ejs template</h1>
+<%- include('header'); %>
+<% if(error === null) { %>
+    <div>
+        <form method="post" action="/">
+            <input type="text" id="city" name="cityname" placeholder="City name">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div id="weather">
+        <div id="description"><%= description %></div>
+        <h1 id="temp"><%= temp %>°C</h1>
+        <div id="location"><%= city %></div>
+    </div>
+<% } else { %>
+    <div class="alert" role="alert">
+        <%= error %>
+    </div>
+    <a class="btn" href="/" role="button">Try again</a>
+<% } %>
+<%- include('footer'); %>
